@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 JINGO_APPLICATION_TITLE="${JINGO_APPLICATION_TITLE:-Jingo Wiki}"
