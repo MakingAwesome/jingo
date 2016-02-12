@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 JINGO_APPLICATION_TITLE="${JINGO_APPLICATION_TITLE:-Jingo Wiki}"
@@ -9,12 +9,13 @@ JINGO_PORT="${JINGO_PORT:-8080}"
 mkdir -p "$JINGO_REPOSITORY"
 
 if [ ! -d "$JINGO_REPOSITORY/.git" ]; then
-  pushd "$JINGO_REPOSITORY"
+  OR=$(pwd)
+  cd "$JINGO_REPOSITORY"
   git init
   touch Home.md
   git add -A Home.md
   git commit -m "Initial commit"
-  popd
+  cd "$OR"
 fi
 
 if [ ! -f /opt/jingo/config.yaml ]; then
